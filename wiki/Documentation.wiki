@@ -1,0 +1,3 @@
+#summary Documentation of cubc
+
+Interprets the [UBC] file given as the command line argument.
