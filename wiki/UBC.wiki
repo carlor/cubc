@@ -6,6 +6,7 @@
 
 One advantage over assembly language: memory is automatically allocated before; i.e. *it's all yours*.
 
+It is meant to be compiled from other languages (vs. into native bytecode), but it can be written directly or using VUBC (*Visual UBC*, a textual representation of the bytes).
 
 = List of Commands =
 
