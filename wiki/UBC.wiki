@@ -23,7 +23,7 @@ It is meant to be compiled from other languages (vs. into native bytecode), but 
 
 || byte || VUBC       || action                                               ||
 || 0    || null       || Returns the value 0.                                 ||
-|| 1    || @{address} || Returns the value stored at the address specified.   ||
+|| 1    || @ {address} || Returns the value stored at the address specified.   ||
 || 2    || -number-   || Combines the following values into a small (16-bit). ||
 || 3    || -number-   || Returns the value of the following byte.             ||
 || 4    || -number-   || Combines the following values into a norm (32-bit).  ||
