@@ -29,8 +29,8 @@ One advantage over assembly language: memory is automatically allocated before; 
 || 5    || test {cond} {res1} {res2} || Basically returns `cond ? res1 : res2`||
 || 8    || -number-   || Combines the following values into a big (64-bit).   ||
 || 15   || in         || Inputs the next character into a value (s -> 115).   ||
-|| 16   || interpreter_id || Returns the [List-of-interpreter-ids interpreter id],                       ||
-|| 17   || os_id      || Returns the [List-of-OS-ids OS id]                                    ||
+|| 16   || interpreter_id || Returns the [ListOfInterpreterIDs interpreter id],                       ||
+|| 17   || os_id      || Returns the [ListOfOSIDs OS id]                                    ||
 || 18   || os_version_id || Returns the version of the OS                     ||
 || 32   || sum {value} {value} || Returns the sum of the specified values.    ||
 || 33   || diff {value} {value} || Returns the difference between the specified values.    ||
