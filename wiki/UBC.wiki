@@ -1,0 +1,55 @@
+#summary UBC - Universal ByteCode.
+
+= Introduction =
+
+*UBC* (*Universal ByteCode*) is a cross between a low-level programming language and machine code. The former in that it has all the standard commands of `set` and `goto`, and the latter in that it is composed of bytes.  
+
+One advantage over assembly language: memory is automatically allocated before; i.e. *it's all yours*.
+
+
+= List of Commands =
+
+|| byte || VUBC         || action                                                   ||
+|| 0    || null         || Does nothing - may be used as to surround embedded data. ||
+|| 1    || goto {value} || Program jumps to the byte specified.                     ||
+|| 2    || system {string} || executes the system command specified.                ||
+|| 3    || exit {value} || Program exits with the specified value.                  ||
+|| 14   || out {value}  || Outputs the value as a character (115 -> s)              ||
+|| 22   || pause        || Interface-specific; for cubc, it executes `cin.get()`    ||
+|| 115  || set {address} {value} || Sets to the address specified the value specified.|| 
+
+= Values =
+
+|| byte || VUBC       || action                                               ||
+|| 0    || null       || Returns the value 0.                                 ||
+|| 1    || @{address} || Returns the value stored at the address specified.   ||
+|| 2    || -number-   || Combines the following values into a small (16-bit). ||
+|| 3    || -number-   || Returns the value of the following byte.             ||
+|| 4    || -number-   || Combines the following values into a norm (32-bit).  ||
+|| 5    || test {cond} {res1} {res2} || Basically returns `cond ? res1 : res2`||
+|| 8    || -number-   || Combines the following values into a big (64-bit).   ||
+|| 15   || in         || Inputs the next character into a value (s -> 115).   ||
+|| 16   || interpreter_id || Returns the interpreter id                       ||
+|| 17   || os_id      || Returns the OS id                                    ||
+|| 18   || os_version_id || Returns the version of the OS                     ||
+|| 32   || sum {value} {value} || Returns the sum of the specified values.    ||
+|| 33   || diff {value} {value} || Returns the difference between the specified values.    ||
+|| 34   || prod {value} {value} || Returns the product of the specified values.    ||
+|| 35   || quot {value} {value} || Returns the quotient of the specified values.    ||
+|| 36   || rem {value} {value} || Returns the modulus of the specified values.    ||
+|| 48   || eq {value} {value} || Returns whether the values are equivalent (1 or 0). ||
+|| 49   || neq {value} {value} || Returns whether the values aren't equivalent (1 or 0). ||
+|| 50   || lt {value} {value} || Returns whether the first value is less than the second. ||
+|| 51   || lt {value} {value} || Returns whether the first value is greater than the second. ||
+|| 64   || not {value} || Returns an inversion - not 0 = 1, not [anything else] = 0 ||
+|| 65   || bitwise_nand {value} {value} || Returns bitwise NAND value1 value2. ||
+
+= String =
+Only used for the `system` command, it takes a small (16-bit) and a location as an argument. The small is the length of the string, and the location is that of the first character. A VUBC example:
+
+{{{
+set 0 99  ; c
+set 1 108 ; l
+set 2 115 ; s
+system 3 0 ; executes "cls"
+}}}
