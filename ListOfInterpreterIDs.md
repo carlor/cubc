@@ -1,0 +1,3 @@
+| ID | Interface   | Description                            |
+|:---|:------------|:---------------------------------------|
+| 99 | Raw Console | I/O is routed directly to the console. |

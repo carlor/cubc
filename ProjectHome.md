@@ -1,0 +1,1 @@
+Interprets the [UBC language](https://code.google.com/p/cubc/wiki/UBC) getting i/o from the console.
